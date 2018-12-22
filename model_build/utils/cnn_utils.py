@@ -7,25 +7,6 @@ def new_weights(shape):
 def new_biases(length):
     return tf.get_variable(name='biases', initializer=tf.constant(0.05, shape=[length]))
 
-
-# def conv(input, filter_height, filter_width, num_filters, stride_y, stride_x, name, padding='SAME'):
-#
-#     with tf.variable_scope(name, reuse=tf.AUTO_REUSE):
-#
-#         num_input_channels = tf.cast(input.get_shape()[3], tf.int32)
-#         shape = [filter_height, filter_width, num_input_channels, num_filters]
-#         weights = new_weights(shape=shape)
-#         biases = new_biases(length=num_filters)
-#
-#         layer = tf.nn.conv2d(input=input, filter=weights,
-#                              strides=[1 , stride_y, stride_x, 1],
-#                              padding=padding, name=name)
-#         layer+=biases
-#         layer = tf.nn.relu(layer)
-#
-#         return layer, weights
-
-
 def conv(x, filter_height, filter_width, num_filters, stride_y, stride_x, name, padding='SAME', groups=1):
     """
     Adapted from: https://github.com/ethereon/caffe-tensorflow
