@@ -3,7 +3,6 @@ import tensorflow as tf
 def new_weights(shape):
     return tf.get_variable(name='weights', initializer=tf.truncated_normal(shape=shape, stddev=0.05))
 
-
 def new_biases(length):
     return tf.get_variable(name='biases', initializer=tf.constant(0.05, shape=[length]))
 
